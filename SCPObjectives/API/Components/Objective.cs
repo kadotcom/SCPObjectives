@@ -2,6 +2,7 @@
 using SCPObjectives.API.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,9 +23,11 @@ namespace SCPObjectives.API.Components
         public string ObjectiveString { get; set; } = "Do Absolutely Nothing";
 
         public int NeededToComplete { get; set; } = 0;
-
+        
         public ItemType RewardItem { get; set; } = ItemType.None;
 
+        public uint RewardCustomItem { get; set; } = 0;
+        
         public int RewardXP { get; set; } = 0;
     }
 }

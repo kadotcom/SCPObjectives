@@ -20,6 +20,11 @@ namespace SCPObjectives.API.Enums
         Item,
 
         /// <summary>
+        /// Gives an CustomItem on completion.
+        /// </summary>
+        CustomItem,
+
+        /// <summary>
         /// Give some XP on completion (you must need XPSystem for this to work)
         /// </summary>
         XP

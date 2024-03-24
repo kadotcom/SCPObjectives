@@ -1,4 +1,5 @@
 ﻿using Exiled.API.Features;
+using Exiled.CustomItems.API.Features;
 using SCPObjectives.API.Components;
 using SCPObjectives.API.Enums;
 using System;
@@ -146,36 +147,40 @@ namespace SCPObjectives.API
         public void MarkObjectiveAsComplete(PlayerObjective p)
         {
             string hint = "";
-            PluginAPI.Core.Log.Debug("[SCPObjectives] Start of completing.");
 
             if (Objectives.Contains(p) && !p.IsCompleted)
             {
-                PluginAPI.Core.Log.Debug("Not completed.");
-
                 if (p.objective.Reward == Enums.RewardEnum.Item)
                 {
-                    PluginAPI.Core.Log.Debug("Item.");
                     hint = Features.Builder.BuildHint($"Completed {p.objective.ObjectiveString}!\n+{p.objective.RewardItem.ToString()}", "36fe04ff");
                     p.player.AddItem(p.objective.RewardItem);
                 }
                 else if (p.objective.Reward == Enums.RewardEnum.XP)
                 {
-                    PluginAPI.Core.Log.Debug("XP.");
                     if (Main.Instance == null)
                     {
-                        PluginAPI.Core.Log.Error("[SCPObjectives] Cannot grant XP as XPSystem doesn't exist, please install the plugin.");
+                        PluginAPI.Core.Log.Error("Cannot grant XP as XPSystem doesn't exist, please install the plugin.");
                         return;
                     }
                     hint = Features.Builder.BuildHint($"Completed {p.objective.ObjectiveString}!\n+{p.objective.RewardXP.ToString()} EXP", "36fe04ff");
                     XPSystem.API.Extensions.AddXP(XPSystem.API.Extensions.GetLog(p.player.ReferenceHub), p.objective.RewardXP);
+                }else if(p.objective.Reward == RewardEnum.CustomItem)
+                {
+                    CustomItem? customItem = CustomItem.Get(p.objective.RewardCustomItem);
+
+                    if (customItem == null)
+                    {
+                        PluginAPI.Core.Log.Error($"CustomItem ID {p.objective.RewardCustomItem} doesn't exist.");
+                        return;
+                    }
+
+                    customItem.Give(p.player);
+                    hint = Features.Builder.BuildHint($"Completed {p.objective.ObjectiveString}!\n+{customItem.Name}", "36fe04ff");
+
                 }
 
                 p.player.ShowHint(hint, 5);
                 p.IsCompleted = true;
-            }
-            else
-            {
-                PluginAPI.Core.Log.Debug("Completed.");
             }
         }
 
@@ -195,7 +200,7 @@ namespace SCPObjectives.API
                 {
                     if (Plugin.Instance.Config.Debug)
                     {
-                        PluginAPI.Core.Log.Warning("[SCPObjectives] Cannot assign objective \"" + objective.ObjectiveString + "\" to player " + player.DisplayNickname + " as the objective is role specific and the player don't have the right role.");
+                        PluginAPI.Core.Log.Warning("Cannot assign objective \"" + objective.ObjectiveString + "\" to player " + player.DisplayNickname + " as the objective is role specific and the player don't have the right role.");
                     }
 
                     return;
@@ -207,7 +212,7 @@ namespace SCPObjectives.API
                 {
                     if (Plugin.Instance.Config.Debug)
                     {
-                        PluginAPI.Core.Log.Warning("[SCPObjectives] For some reason, it appears the API wasn't initialized, so it will be initialized now.");
+                        PluginAPI.Core.Log.Warning("For some reason, it appears the API wasn't initialized, so it will be initialized now.");
                     }
                     Init();
                 }
