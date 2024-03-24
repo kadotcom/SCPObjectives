@@ -25,11 +25,6 @@ namespace SCPObjectives_NWAPI.API.Enums
         EscapeFacility,
 
         /// <summary>
-        /// Deal damage to anyone to complete this objective.
-        /// </summary>
-        DealDamage,
-
-        /// <summary>
         /// Handcuff anyone to complete this objective.
         /// </summary>
         Handcuff,
