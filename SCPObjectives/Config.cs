@@ -44,12 +44,24 @@ namespace SCPObjectives
             {
                 ObjectiveType = API.Enums.ObjectiveEnum.DealDamage,
                 Reward = API.Enums.RewardEnum.Item,
-                RewardItem = ItemType.Coin,
+                RewardItem = ItemType.None,
                 RewardXP = 0,
                 RolesThatCanGetObjective = null,
                 IsRoleSpecific = false,
                 NeededToComplete = 250,
                 ObjectiveString = "Deal damage"
+            },
+            new Objective()
+            {
+                ObjectiveType = API.Enums.ObjectiveEnum.Handcuff,
+                Reward = API.Enums.RewardEnum.CustomItem,
+                RewardItem = ItemType.None,
+                RewardXP = 0,
+                RewardCustomItem = 1,
+                RolesThatCanGetObjective = null,
+                IsRoleSpecific = false,
+                NeededToComplete = 1,
+                ObjectiveString = "Handcuff someone"
             },
         };
     }

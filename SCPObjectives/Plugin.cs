@@ -26,7 +26,7 @@ namespace SCPObjectives
 
             if(XPSystem.Main.Instance == null && Config.Debug)
             {
-                PluginAPI.Core.Log.Warning("[SCPObjectives] XPSystem couldn't be found, anything that awards XP for completing objectives won't work.");
+                PluginAPI.Core.Log.Warning("XPSystem couldn't be found, anything that awards XP for completing objectives won't work.");
             }
 
             RegisterEvents();

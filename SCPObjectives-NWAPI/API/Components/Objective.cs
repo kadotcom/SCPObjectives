@@ -1,5 +1,5 @@
 ﻿using PlayerRoles;
-using SCPObjectives.API.Enums;
+using SCPObjectives_NWAPI.API.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace SCPObjectives.API.Components
+namespace SCPObjectives_NWAPI.API.Components
 {
     public class Objective
     {
@@ -26,8 +26,10 @@ namespace SCPObjectives.API.Components
 
         public ItemType RewardItem { get; set; } = ItemType.None;
 
+        /*
         public uint RewardCustomItem { get; set; } = 0;
         
         public int RewardXP { get; set; } = 0;
+        */
     }
 }
