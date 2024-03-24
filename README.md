@@ -4,7 +4,8 @@ SCPObjectives is an EXILED and (soon) NWAPI plugin that adds objectives to SCP:S
 # Features
 - Customizable objectives.
 - Item, CustomItem and XP rewards for completing objectives.
-- [XPSystem](https://github.com/RowpannSCP/XP) support for rewarding XP.
+- [XPSystem](https://github.com/RowpannSCP/XP) support for rewarding XP in both versions.
+- [NWAPI-CustomItems](https://github.com/NWAPI-CustomItems/API) support for rewarding CustomItems in the NWAPI version.
 
 # Installation
 
