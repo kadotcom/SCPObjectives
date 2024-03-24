@@ -25,11 +25,9 @@ namespace SCPObjectives_NWAPI.API.Enums
         /// </summary>
         CustomItem,
 
-        /*
         /// <summary>
         /// Give some XP on completion (you must need XPSystem for this to work)
         /// </summary>
         XP
-        */
     }
 }

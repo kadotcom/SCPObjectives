@@ -27,8 +27,8 @@ namespace SCPObjectives_NWAPI.API.Components
         public ItemType RewardItem { get; set; } = ItemType.None;
 
         public uint RewardCustomItem { get; set; } = 0;
-        /*
+        
         public int RewardXP { get; set; } = 0;
-        */
+        
     }
 }

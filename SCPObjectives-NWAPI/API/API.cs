@@ -154,18 +154,18 @@ namespace SCPObjectives_NWAPI.API
                     hint = Features.Builder.BuildHint($"Completed {p.objective.ObjectiveString}!\n+{p.objective.RewardItem.ToString()}", "36fe04ff");
                     p.player.AddItem(p.objective.RewardItem);
                 }
-                /*
+
                 else if (p.objective.Reward == Enums.RewardEnum.XP)
                 {
-                    if (Main.Instance == null)
+                    if (XPSystem.Main.Instance == null)
                     {
-                        PluginAPI.Core.Log.Error("Cannot grant XP as XPSystem doesn't exist, please install the plugin.");
+                        Log.Error("Cannot grant XP as XPSystem doesn't exist, please install the plugin.");
                         return;
                     }
                     hint = Features.Builder.BuildHint($"Completed {p.objective.ObjectiveString}!\n+{p.objective.RewardXP.ToString()} EXP", "36fe04ff");
                     XPSystem.API.Extensions.AddXP(XPSystem.API.Extensions.GetLog(p.player.ReferenceHub), p.objective.RewardXP);
-                */
-                else if(p.objective.Reward == RewardEnum.CustomItem)
+                }
+                else if (p.objective.Reward == RewardEnum.CustomItem)
                 {
                     CustomItem? customItem = CustomItem.Get(p.objective.RewardCustomItem);
 
