@@ -1,4 +1,5 @@
-﻿using PluginAPI.Core;
+﻿using NWAPI.CustomItems.API.Features;
+using PluginAPI.Core;
 using SCPObjectives_NWAPI.API.Components;
 using SCPObjectives_NWAPI.API.Enums;
 using System;
@@ -163,7 +164,8 @@ namespace SCPObjectives_NWAPI.API
                     }
                     hint = Features.Builder.BuildHint($"Completed {p.objective.ObjectiveString}!\n+{p.objective.RewardXP.ToString()} EXP", "36fe04ff");
                     XPSystem.API.Extensions.AddXP(XPSystem.API.Extensions.GetLog(p.player.ReferenceHub), p.objective.RewardXP);
-                }else if(p.objective.Reward == RewardEnum.CustomItem)
+                */
+                else if(p.objective.Reward == RewardEnum.CustomItem)
                 {
                     CustomItem? customItem = CustomItem.Get(p.objective.RewardCustomItem);
 
@@ -177,7 +179,7 @@ namespace SCPObjectives_NWAPI.API
                     hint = Features.Builder.BuildHint($"Completed {p.objective.ObjectiveString}!\n+{customItem.Name}", "36fe04ff");
 
                 }
-                */
+                
 
                 p.player.ReceiveHint(hint, 5);
                 p.IsCompleted = true;

@@ -19,12 +19,13 @@ namespace SCPObjectives_NWAPI.API.Enums
         /// </summary>
         Item,
 
-        /*
+        
         /// <summary>
-        /// Gives an CustomItem on completion.
+        /// Gives an CustomItem on completion. (Needs NWAPI-CustomItems API for it to work)
         /// </summary>
         CustomItem,
 
+        /*
         /// <summary>
         /// Give some XP on completion (you must need XPSystem for this to work)
         /// </summary>
