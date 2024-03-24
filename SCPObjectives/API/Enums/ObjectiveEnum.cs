@@ -29,5 +29,10 @@ namespace SCPObjectives.API.Enums
         /// </summary>
         DealDamage,
 
+        /// <summary>
+        /// Handcuff anyone to complete this objective.
+        /// </summary>
+        Handcuff,
+
     }
 }

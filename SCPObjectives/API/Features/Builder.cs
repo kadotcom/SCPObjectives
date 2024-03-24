@@ -11,6 +11,13 @@ namespace SCPObjectives.API.Features
 {
     public class Builder
     {
+        /// <summary>
+        /// Builds a centered hint.
+        /// </summary>
+        /// <param name="hint"></param>
+        /// <param name="hex"></param>
+        /// <param name="bolded"></param>
+        /// <returns></returns>
         public static string BuildHint(string hint, string hex = "ffffffff", bool bolded = false)
         {
             if (bolded)
@@ -23,6 +30,11 @@ namespace SCPObjectives.API.Features
             }
         }
 
+        /// <summary>
+        /// Builds a message which contains objectives that the player has.
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public static string BuildObjectiveString(Player p)
         {
             string s = $"Objectives ({Plugin.Instance.API.GetAmountObjectives(p)}):";

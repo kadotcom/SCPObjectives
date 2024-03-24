@@ -53,6 +53,7 @@ namespace SCPObjectives
             PlayerEvents.Escaping += _handlers.Escape;
             PlayerEvents.Dying += _handlers.Kill;
             PlayerEvents.Hurt += _handlers.Hurt;
+            PlayerEvents.Handcuffing += _handlers.Handcuff;
 
             ServerEvents.RestartingRound += _handlers.Restart;
         }
@@ -63,6 +64,7 @@ namespace SCPObjectives
             PlayerEvents.Escaping -= _handlers.Escape;
             PlayerEvents.Dying -= _handlers.Kill;
             PlayerEvents.Hurt -= _handlers.Hurt;
+            PlayerEvents.Handcuffing -= _handlers.Handcuff;
 
             ServerEvents.RestartingRound -= _handlers.Restart;
 

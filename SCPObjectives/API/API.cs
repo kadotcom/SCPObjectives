@@ -43,10 +43,21 @@ namespace SCPObjectives.API
         /// <summary>
         /// Gets a random objective from the Config.
         /// </summary>
-        /// <returns>Objective</returns>
-        public Objective GetRandomObjective()
+        /// <param name="p">player</param>
+        /// <returns></returns>
+        public Objective GetRandomObjective(Player p)
         {
-            return Plugin.Instance.Config.Objectives.RandomItem();
+            Objective o = Plugin.Instance.Config.Objectives.RandomItem();
+            if (o.IsRoleSpecific && !o.RolesThatCanGetObjective.Contains(p.Role.Type))
+            {
+                int reattempts = 0;
+                while(!o.RolesThatCanGetObjective.Contains(p.Role.Type) || reattempts < 15)
+                {
+                    o = Plugin.Instance.Config.Objectives.RandomItem();
+                    reattempts++;
+                }
+            }
+            return o;
         }
 
         /// <summary>

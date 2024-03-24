@@ -20,16 +20,8 @@ namespace SCPObjectives
 
             for(int i = 0; i < Plugin.Instance.Config.AmountOfObjectivesGiven;  i++)
             {
-                Objective o = Plugin.Instance.API.GetRandomObjective();
+                Objective o = Plugin.Instance.API.GetRandomObjective(ev.Player);
 
-                int reattempts = 0;
-                while(o.IsRoleSpecific && !o.RolesThatCanGetObjective.Contains(ev.Player.Role.Type))
-                {
-                    PluginAPI.Core.Log.Debug(reattempts.ToString());
-                    if (reattempts > 15) break;
-                    o = Plugin.Instance.API.GetRandomObjective();
-                    reattempts++;
-                }
                 Plugin.Instance.API.AssignObjective(o, ev.Player);
                 PluginAPI.Core.Log.Debug((i + 1).ToString() + " - Objective");
             }
@@ -85,6 +77,19 @@ namespace SCPObjectives
                 po.Current += (int)ev.Amount;
                 PluginAPI.Core.Log.Debug(po.Current + "/" + po.objective.NeededToComplete + " - after");
 
+                if (po.Current >= po.objective.NeededToComplete && !po.IsCompleted)
+                {
+                    Plugin.Instance.API.MarkObjectiveAsComplete(po);
+                }
+            }
+        }
+
+        public void Handcuff(HandcuffingEventArgs ev) {
+            if (Plugin.Instance.API.PlayerHasObjective(ev.Player, API.Enums.ObjectiveEnum.Handcuff))
+            {
+                PlayerObjective po = Plugin.Instance.API.GetPlayerObjectiveFromEnum(ev.Player, API.Enums.ObjectiveEnum.Handcuff);
+
+                po.Current++;
                 if (po.Current >= po.objective.NeededToComplete && !po.IsCompleted)
                 {
                     Plugin.Instance.API.MarkObjectiveAsComplete(po);
