@@ -18,8 +18,9 @@ namespace SCPObjectives_NWAPI
         }
 
         [PluginAPI.Core.Attributes.PluginEvent]
-        public void Spawned(PluginAPI.Events.PlayerSpawnEvent ev)
+        public void Spawned(PluginAPI.Events.PlayerChangeRoleEvent ev)
         {
+            if (ev.ChangeReason != PlayerRoles.RoleChangeReason.RoundStart) return;
             if (Plugin.Instance.API.PlayersWhoHasReceivedObjectives.Contains(ev.Player) && !Plugin.Instance.Config.GiveObjectivesWhenAPlayerRespawns)
             {
                 return;

@@ -27,9 +27,45 @@ namespace SCPObjectives_NWAPI
         public bool GiveObjectivesWhenAPlayerRespawns { get; set; } = false;
 
         [Description("List of objectives the player can get.")]
-        public List<Objective> Objectives { get; set; } = new List<Objective>()
-        {
+        public List<Objective> Objectives { get; set; } = new List<Objective>() {
             new Objective()
+            {
+                ObjectiveType = API.Enums.ObjectiveEnum.EscapeFacility,
+                Reward = API.Enums.RewardEnum.Item,
+                RewardItem = ItemType.None,
+                RewardXP = 0,
+                RolesThatCanGetObjective = new List<PlayerRoles.RoleTypeId>()
+                {
+                    PlayerRoles.RoleTypeId.ClassD,
+                    PlayerRoles.RoleTypeId.Scientist
+                },
+                IsRoleSpecific = true,
+                NeededToComplete = 1,
+                ObjectiveString = "Escape the facility"
+            },
+            new Objective()
+            {
+                ObjectiveType = API.Enums.ObjectiveEnum.KillAnotherPerson,
+                Reward = API.Enums.RewardEnum.XP,
+                RewardItem = ItemType.None,
+                RewardXP = 0,
+                RolesThatCanGetObjective = null,
+                IsRoleSpecific = false,
+                NeededToComplete = 1,
+                ObjectiveString = "Kill a person"
+            },
+            new Objective()
+            {
+                ObjectiveType = API.Enums.ObjectiveEnum.Handcuff,
+                Reward = API.Enums.RewardEnum.CustomItem,
+                RewardItem = ItemType.None,
+                RewardXP = 0,
+                RewardCustomItem = 1,
+                RolesThatCanGetObjective = null,
+                IsRoleSpecific = false,
+                NeededToComplete = 1,
+                ObjectiveString = "Handcuff someone"
+            },
         };
     }
 }

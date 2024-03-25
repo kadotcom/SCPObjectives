@@ -28,6 +28,15 @@ namespace SCPObjectives_NWAPI
             Instance = this;
             API = new API.API();
             PluginAPI.Events.EventManager.RegisterEvents(_handler);
+
+            if (XPSystem.Main.Instance == null && Config.Debug)
+            {
+                PluginAPI.Core.Log.Warning("XPSystem couldn't be found, anything that awards XP for completing objectives won't work.");
+            }
+            if (NWAPI.CustomItems.Plugin.Instance == null && Config.Debug)
+            {
+                PluginAPI.Core.Log.Warning("NWAPI-CustomItems couldn't be found, anything that awards CustomItems for completing objectives won't work.");
+            }
         }
 
     }
