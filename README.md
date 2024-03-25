@@ -1,5 +1,5 @@
 # SCPObjectives
-SCPObjectives is an EXILED and (soon) NWAPI plugin that adds objectives to SCP:SL.
+SCPObjectives is an EXILED and NWAPI plugin that adds objectives to SCP:SL.
 
 # Features
 - Customizable objectives.
