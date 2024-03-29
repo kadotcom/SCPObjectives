@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace SCPObjectives_NWAPI.API.Components
 {
-    public class PlayerObjective : MonoBehaviour
+    public class PlayerObjective
     {
         public Player player;
 
