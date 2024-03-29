@@ -1,4 +1,5 @@
 ﻿using Exiled.API.Features;
+using System;
 using PlayerEvents = Exiled.Events.Handlers.Player;
 using ServerEvents = Exiled.Events.Handlers.Server;
 
@@ -11,6 +12,8 @@ namespace SCPObjectives
         public override string Name => "SCPObjectives";
 
         public override string Prefix => Name;
+
+        public override Version Version => new Version(1,0,0);
 
         public static Plugin Instance;
 

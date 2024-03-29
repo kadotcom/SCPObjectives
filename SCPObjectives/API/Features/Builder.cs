@@ -14,10 +14,10 @@ namespace SCPObjectives.API.Features
         /// <summary>
         /// Builds a centered hint.
         /// </summary>
-        /// <param name="hint"></param>
-        /// <param name="hex"></param>
-        /// <param name="bolded"></param>
-        /// <returns></returns>
+        /// <param name="hint">hint string</param>
+        /// <param name="hex">hex code</param>
+        /// <param name="bolded">bolded</param>
+        /// <returns>hint string</returns>
         public static string BuildHint(string hint, string hex = "ffffffff", bool bolded = false)
         {
             if (bolded)
@@ -33,8 +33,8 @@ namespace SCPObjectives.API.Features
         /// <summary>
         /// Builds a message which contains objectives that the player has.
         /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
+        /// <param name="p">player</param>
+        /// <returns>objective message</returns>
         public static string BuildObjectiveString(Player p)
         {
             string s = $"Objectives ({Plugin.Instance.API.GetAmountObjectives(p)}):";

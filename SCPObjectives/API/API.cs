@@ -64,7 +64,7 @@ namespace SCPObjectives.API
         /// <summary>
         /// Gets all the players objective.
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="p">player</param>
         /// <returns></returns>
         public List<PlayerObjective> GetPlayerObjectives(Player p)
         {
@@ -84,8 +84,8 @@ namespace SCPObjectives.API
         /// <summary>
         /// Gets the total amount of objectives that a player has.
         /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
+        /// <param name="p">player</param>
+        /// <returns>playerobjective</returns>
         public int GetAmountObjectives(Player p)
         {
             int playerObjectives = 0;
@@ -106,7 +106,7 @@ namespace SCPObjectives.API
         /// </summary>
         /// <param name="p">player</param>
         /// <param name="o">objective</param>
-        /// <returns></returns>
+        /// <returns>playerobjective</returns>
         public PlayerObjective GetPlayerObjectiveFromEnum(Player p, ObjectiveEnum o)
         {
             PlayerObjective playerObjective = null;
@@ -125,7 +125,7 @@ namespace SCPObjectives.API
         /// </summary>
         /// <param name="p">player</param>
         /// <param name="o">objective</param>
-        /// <returns></returns>
+        /// <returns>true/false</returns>
         public bool PlayerHasObjective(Player p, ObjectiveEnum o)
         {
             bool r = false;
@@ -188,8 +188,8 @@ namespace SCPObjectives.API
         /// <summary>
         /// Creates a PlayerObjective and adds it to the 'Objectives' list.
         /// </summary>
-        /// <param name="objective"></param>
-        /// <param name="player"></param>
+        /// <param name="objective">objective</param>
+        /// <param name="player">player</param>
         public void AssignObjective(Objective objective, Player player)
         {
             PlayerObjective playerObj = new PlayerObjective();
