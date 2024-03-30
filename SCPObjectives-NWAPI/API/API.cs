@@ -45,18 +45,9 @@ namespace SCPObjectives_NWAPI.API
         /// </summary>
         /// <param name="p">player</param>
         /// <returns></returns>
-        public Objective GetRandomObjective(Player p)
+        public Objective GetRandomObjective()
         {
             Objective o = Plugin.Instance.Config.Objectives.RandomItem();
-            if (o.IsRoleSpecific && !o.RolesThatCanGetObjective.Contains(p.Role))
-            {
-                int reattempts = 0;
-                while(!o.RolesThatCanGetObjective.Contains(p.Role) || reattempts < 15)
-                {
-                    o = Plugin.Instance.Config.Objectives.RandomItem();
-                    reattempts++;
-                }
-            }
             return o;
         }
 

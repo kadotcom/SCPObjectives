@@ -28,7 +28,7 @@ namespace SCPObjectives_NWAPI
 
             for (int i = 0; i < Plugin.Instance.Config.AmountOfObjectivesGiven; i++)
             {
-                Objective o = Plugin.Instance.API.GetRandomObjective(ev.Player);
+                Objective o = Plugin.Instance.API.GetRandomObjective();
 
                 Plugin.Instance.API.AssignObjective(o, ev.Player);
                 PluginAPI.Core.Log.Debug((i + 1).ToString() + " - Objective");
