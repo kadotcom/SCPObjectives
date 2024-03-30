@@ -96,5 +96,47 @@ namespace SCPObjectives
                 }
             }
         }
+
+        public void EnableGenerator(ActivatingGeneratorEventArgs ev)
+        {
+            if (Plugin.Instance.API.PlayerHasObjective(ev.Player, API.Enums.ObjectiveEnum.EnableGenerators))
+            {
+                PlayerObjective po = Plugin.Instance.API.GetPlayerObjectiveFromEnum(ev.Player, API.Enums.ObjectiveEnum.EnableGenerators);
+
+                po.Current++;
+                if (po.Current >= po.objective.NeededToComplete && !po.IsCompleted)
+                {
+                    Plugin.Instance.API.MarkObjectiveAsComplete(po);
+                }
+            }
+        }
+
+        public void EscapePocketDimension(EscapingPocketDimensionEventArgs ev)
+        {
+            if (Plugin.Instance.API.PlayerHasObjective(ev.Player, API.Enums.ObjectiveEnum.EscapePocketDimension))
+            {
+                PlayerObjective po = Plugin.Instance.API.GetPlayerObjectiveFromEnum(ev.Player, API.Enums.ObjectiveEnum.EscapePocketDimension);
+
+                po.Current++;
+                if (po.Current >= po.objective.NeededToComplete && !po.IsCompleted)
+                {
+                    Plugin.Instance.API.MarkObjectiveAsComplete(po);
+                }
+            }
+        }
+
+        public void PickUpItem(PickingUpItemEventArgs ev)
+        {
+            if (Plugin.Instance.API.PlayerHasObjective(ev.Player, API.Enums.ObjectiveEnum.PickUpItem))
+            {
+                PlayerObjective po = Plugin.Instance.API.GetPlayerObjectiveFromEnum(ev.Player, API.Enums.ObjectiveEnum.PickUpItem);
+
+                po.Current++;
+                if (po.Current >= po.objective.NeededToComplete && !po.IsCompleted)
+                {
+                    Plugin.Instance.API.MarkObjectiveAsComplete(po);
+                }
+            }
+        }
     }
 }

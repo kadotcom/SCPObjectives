@@ -57,6 +57,9 @@ namespace SCPObjectives
             PlayerEvents.Dying += _handlers.Kill;
             PlayerEvents.Hurt += _handlers.Hurt;
             PlayerEvents.Handcuffing += _handlers.Handcuff;
+            PlayerEvents.EscapingPocketDimension += _handlers.EscapePocketDimension;
+            PlayerEvents.ActivatingGenerator += _handlers.EnableGenerator;
+            PlayerEvents.PickingUpItem += _handlers.PickUpItem;
 
             ServerEvents.RestartingRound += _handlers.Restart;
         }
@@ -68,6 +71,9 @@ namespace SCPObjectives
             PlayerEvents.Dying -= _handlers.Kill;
             PlayerEvents.Hurt -= _handlers.Hurt;
             PlayerEvents.Handcuffing -= _handlers.Handcuff;
+            PlayerEvents.EscapingPocketDimension -= _handlers.EscapePocketDimension;
+            PlayerEvents.ActivatingGenerator -= _handlers.EnableGenerator;
+            PlayerEvents.PickingUpItem -= _handlers.PickUpItem;
 
             ServerEvents.RestartingRound -= _handlers.Restart;
 

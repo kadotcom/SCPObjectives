@@ -34,5 +34,20 @@ namespace SCPObjectives.API.Enums
         /// </summary>
         Handcuff,
 
+        /// <summary>
+        /// Activate a generator to complete this objective.
+        /// </summary>
+        EnableGenerators,
+
+        /// <summary>
+        /// Get into and successfully escape the pocket dimension to complete this objective.
+        /// </summary>
+        EscapePocketDimension,
+
+        /// <summary>
+        /// Pick up any item to complete this objective.
+        /// </summary>
+        PickUpItem
+
     }
 }
