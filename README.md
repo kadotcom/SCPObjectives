@@ -87,13 +87,19 @@ So, to add a new objective, you copy the template, or one of the objectives prov
 Now, obviously, an uncompletable objective can't be assigned, so let's change some of the values in here. Let's start with the ObjectiveType, there is, currently, 4 actual objectives types, those are listed below:
 ```csharp
 // Kill anyone of any role to complete this objective.
-KillAnotherPerson,
+KillAnotherPerson
 // Escape and become an Private/Conscript to complete this objective.
-EscapeFacility,
+EscapeFacility
 // Deal damage to anyone to complete this objective.
-DealDamage,
+DealDamage
 // Handcuff anyone to complete this objective.
-Handcuff,
+Handcuff
+/// Activate a generator to complete this objective.
+EnableGenerators
+/// Get into and successfully escape the pocket dimension to complete this objective.
+EscapePocketDimension
+/// Pick up any item to complete this objective.
+PickUpItem
 ```
 So, for this example, let's make the objective completeable by dealing damage to someone.
 ```yaml
