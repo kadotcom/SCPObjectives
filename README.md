@@ -171,3 +171,4 @@ And this is how it should look like in the default ```objectives``` list:
     reward_custom_item: 0
     reward_x_p: 0
 ```
+After you are done, save the config and, if the server is online, restart the server, or, if it's offline, start the server and the objective should be in-game.
