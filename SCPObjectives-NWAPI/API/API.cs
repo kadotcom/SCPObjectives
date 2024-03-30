@@ -204,8 +204,10 @@ namespace SCPObjectives_NWAPI.API
             {
                 Log.Debug("is rolespecific: " + objective.IsRoleSpecific);
 
-                if (objective.IsRoleSpecific && objective.RolesThatCanGetObjective.Contains(player.Role))
-                    if (Plugin.Instance.Config.Debug)
+                if (objective.IsRoleSpecific && !objective.RolesThatCanGetObjective.Contains(player.Role))
+                    Log.Debug("wompwomp");
+
+                if (Plugin.Instance.Config.Debug)
                     {
                         Log.Warning("Cannot assign objective \"" + objective.ObjectiveString + "\" to player " + player.DisplayNickname + " as the objective is role specific and the player don't have the right role.");
                     }

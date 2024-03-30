@@ -196,7 +196,7 @@ namespace SCPObjectives.API
 
             if(objective != null)
             {
-                if (objective.IsRoleSpecific && objective.RolesThatCanGetObjective.Contains(player.Role.Type))
+                if (objective.IsRoleSpecific && !objective.RolesThatCanGetObjective.Contains(player.Role.Type))
                 {
                     if (Plugin.Instance.Config.Debug)
                     {
