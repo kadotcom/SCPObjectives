@@ -1,5 +1,5 @@
 # SCPObjectives
-SCPObjectives is an EXILED plugin that adds objectives to SCP:SL.
+SCPObjectives is an EXILED plugin that adds objectives/quests to SCP:SL.
 
 # Features
 - Customizable objectives.
