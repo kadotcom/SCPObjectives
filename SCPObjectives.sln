@@ -5,8 +5,6 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCPObjectives", "SCPObjectives\SCPObjectives.csproj", "{64FD0725-66EE-4245-B1EF-AF9B1300E03A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCPObjectives-NWAPI", "SCPObjectives-NWAPI\SCPObjectives-NWAPI.csproj", "{D6F8C4A1-10CC-41A6-920F-708610B98DAA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
