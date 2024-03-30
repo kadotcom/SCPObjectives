@@ -88,6 +88,7 @@ So, to add a new objective, you copy the template, or one of the objectives prov
     reward_x_p: 0 # The amount of XP you'll get if you complete an objective.
 ```
 Now, obviously, an uncompletable objective can't be assigned, so let's change some of the values in here. Let's start with the ObjectiveType, there is, currently, 4 actual objectives types, those are listed below:
+### ObjectiveTypes
 ```csharp
 // Kill anyone of any role to complete this objective.
 KillAnotherPerson
@@ -111,6 +112,7 @@ So, for this example, let's make the objective completeable by dealing damage to
 Now, for this example, I won't enable ```is_role_specific```, but there is an example within the config, so let's go to setting a reward.
 
 As of right now, there are three actual reward types, those are listed below:
+### RewardTypes
 ```csharp
 // Give an item on completion.
 Item
