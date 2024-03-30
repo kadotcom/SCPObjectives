@@ -2,11 +2,7 @@
 using Exiled.CustomItems.API.Features;
 using SCPObjectives.API.Components;
 using SCPObjectives.API.Enums;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using XPSystem;
 
 namespace SCPObjectives.API
