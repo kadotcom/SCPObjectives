@@ -21,71 +21,131 @@ When you spawn initially, if that's either when the round starts, or at the next
 When the config get initialized, you'll see a few stuff, but this will focus on setting up Objectives, how Objectives work in this plugin is that you set the Objectives that can be given in the config. You do this by finding the ```objectives``` list in the config, this is what it should look like initially.
 ```yaml
   objectives:
-  - objective_type: EscapeFacility
+  -
+  # The objective that you need to complete (read the GitHub README for each ObjectiveType)
+    objective_type: EscapeFacility
+    # Determines if a certain role can get/complete the objective.
     is_role_specific: true
+    # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective:
     - ClassD
     - Scientist
+    # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
     reward: Item
+    # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Escape the facility'
+    # The amount that is needed to complete an objective.
     needed_to_complete: 1
+    # The ItemType you'll get if you complete an objective (if reward is set to Item)
     reward_item: KeycardScientist
+    # The CustomItem (by ID) you'll get if you complete an objective (if reward is set to CustomItem)
     reward_custom_item: 0
+    # The amount of XP you'll get if you complete an objective. (if reward is set to XP)
     reward_x_p: 0
-  - objective_type: Handcuff
+  -
+  # The objective that you need to complete (read the GitHub README for each ObjectiveType)
+    objective_type: Handcuff
+    # Determines if a certain role can get/complete the objective.
     is_role_specific: false
+    # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective: 
+    # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
     reward: CustomItem
+    # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Handcuff someone'
+    # The amount that is needed to complete an objective.
     needed_to_complete: 1
+    # The ItemType you'll get if you complete an objective (if reward is set to Item)
     reward_item: None
+    # The CustomItem (by ID) you'll get if you complete an objective (if reward is set to CustomItem)
     reward_custom_item: 1
+    # The amount of XP you'll get if you complete an objective. (if reward is set to XP)
     reward_x_p: 0
 ```
-This is what each value within the objectives does:
+This is what each value within the objectives does, what each value does is explained, but here's a template:
 ```yaml
-  - objective_type: None # The objective that you need to complete (read below for each ObjectiveType)
-    is_role_specific: false # Determines if a certain role can get/complete the objective.
-    roles_that_can_get_objective: # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
-    reward: None # The reward you'll get once the objective is completed (read below for each RewardType)
-    objective_string: '' # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
-    needed_to_complete: 1 # The amount that is needed to complete an objective.
-    reward_item: None # The ItemType you'll get if you complete an objective
-    reward_custom_item: 0 # The CustomItem (by ID) you'll get if you complete an objective
-    reward_x_p: 0 # The amount of XP you'll get if you complete an objective.
+  -
+  # The objective that you need to complete (read the GitHub README for each ObjectiveType)
+    objective_type: None
+    # Determines if a certain role can get/complete the objective.
+    is_role_specific: false
+    # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
+    roles_that_can_get_objective: 
+    # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
+    reward: None
+    # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
+    objective_string: ''
+    # The amount that is needed to complete an objective.
+    needed_to_complete: 1
+    # The ItemType you'll get if you complete an objective (if reward is set to Item)
+    reward_item: None
+    # The CustomItem (by ID) you'll get if you complete an objective (if reward is set to CustomItem)
+    reward_custom_item: 0
+    # The amount of XP you'll get if you complete an objective. (if reward is set to XP)
+    reward_x_p: 0
 ```
 So, to add a new objective, you copy the template, or one of the objectives provided, and paste it below the last objective, so for the default config, this is how it should look:
 ```yaml
   objectives:
-  - objective_type: EscapeFacility
+  -
+  # The objective that you need to complete (read the GitHub README for each ObjectiveType)
+    objective_type: EscapeFacility
+    # Determines if a certain role can get/complete the objective.
     is_role_specific: true
+    # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective:
     - ClassD
     - Scientist
+    # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
     reward: Item
+    # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Escape the facility'
+    # The amount that is needed to complete an objective.
     needed_to_complete: 1
+    # The ItemType you'll get if you complete an objective (if reward is set to Item)
     reward_item: KeycardScientist
+    # The CustomItem (by ID) you'll get if you complete an objective (if reward is set to CustomItem)
     reward_custom_item: 0
+    # The amount of XP you'll get if you complete an objective. (if reward is set to XP)
     reward_x_p: 0
-  - objective_type: Handcuff
+  -
+  # The objective that you need to complete (read the GitHub README for each ObjectiveType)
+    objective_type: Handcuff
+    # Determines if a certain role can get/complete the objective.
     is_role_specific: false
+    # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective: 
+    # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
     reward: CustomItem
+    # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Handcuff someone'
+    # The amount that is needed to complete an objective.
     needed_to_complete: 1
+    # The ItemType you'll get if you complete an objective (if reward is set to Item)
     reward_item: None
+    # The CustomItem (by ID) you'll get if you complete an objective (if reward is set to CustomItem)
     reward_custom_item: 1
+    # The amount of XP you'll get if you complete an objective. (if reward is set to XP)
     reward_x_p: 0
-  - objective_type: None # The objective that you need to complete (read below for each ObjectiveType)
-    is_role_specific: false # Determines if a certain role can get/complete the objective.
-    roles_that_can_get_objective: # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
-    reward: None # The reward you'll get once the objective is completed (read below for each RewardType)
-    objective_string: '' # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
-    needed_to_complete: 1 # The amount that is needed to complete an objective.
-    reward_item: None # The ItemType you'll get if you complete an objective
-    reward_custom_item: 0 # The CustomItem (by ID) you'll get if you complete an objective
-    reward_x_p: 0 # The amount of XP you'll get if you complete an objective.
+  -
+  # The objective that you need to complete (read the GitHub README for each ObjectiveType)
+    objective_type: None
+    # Determines if a certain role can get/complete the objective.
+    is_role_specific: false
+    # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
+    roles_that_can_get_objective: 
+    # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
+    reward: None
+    # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
+    objective_string: ''
+    # The amount that is needed to complete an objective.
+    needed_to_complete: 1
+    # The ItemType you'll get if you complete an objective (if reward is set to Item)
+    reward_item: None
+    # The CustomItem (by ID) you'll get if you complete an objective (if reward is set to CustomItem)
+    reward_custom_item: 0
+    # The amount of XP you'll get if you complete an objective. (if reward is set to XP)
+    reward_x_p: 0
 ```
 Now, obviously, an uncompletable objective can't be assigned, so let's change some of the values in here. Let's start with the ObjectiveType, there is, currently, 4 actual objectives types, those are listed below:
 ### ObjectiveTypes
@@ -107,7 +167,7 @@ PickUpItem
 ```
 So, for this example, let's make the objective completeable by dealing damage to someone.
 ```yaml
- - objective_type: DealDamage
+  objective_type: DealDamage
 ```
 Now, for this example, I won't enable ```is_role_specific```, but there is an example within the config, so let's go to setting a reward.
 
@@ -139,47 +199,87 @@ reward_item: Coin
 ```
 And now... we are done! So here is what the final result looks like in this case:
 ```yaml
-  - objective_type: DealDamage
+  -
+  # The objective that you need to complete (read the GitHub README for each ObjectiveType)
+    objective_type: DealDamage
+    # Determines if a certain role can get/complete the objective.
     is_role_specific: false
+    # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective: 
+    # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
     reward: Item
+    # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Deal Damage'
+    # The amount that is needed to complete an objective.
     needed_to_complete: 350
+    # The ItemType you'll get if you complete an objective (if reward is set to Item)
     reward_item: Coin
+    # The CustomItem (by ID) you'll get if you complete an objective (if reward is set to CustomItem)
     reward_custom_item: 0
+    # The amount of XP you'll get if you complete an objective. (if reward is set to XP)
     reward_x_p: 0
 ```
-And this is how it should look like in the default ```objectives``` list:
+And this is how it should look like in the ```objectives``` list:
 ```yaml
   objectives:
-  - objective_type: EscapeFacility
+  -
+  # The objective that you need to complete (read the GitHub README for each ObjectiveType)
+    objective_type: EscapeFacility
+    # Determines if a certain role can get/complete the objective.
     is_role_specific: true
+    # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective:
     - ClassD
     - Scientist
+    # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
     reward: Item
+    # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Escape the facility'
+    # The amount that is needed to complete an objective.
     needed_to_complete: 1
+    # The ItemType you'll get if you complete an objective (if reward is set to Item)
     reward_item: KeycardScientist
+    # The CustomItem (by ID) you'll get if you complete an objective (if reward is set to CustomItem)
     reward_custom_item: 0
+    # The amount of XP you'll get if you complete an objective. (if reward is set to XP)
     reward_x_p: 0
-  - objective_type: Handcuff
+  -
+  # The objective that you need to complete (read the GitHub README for each ObjectiveType)
+    objective_type: Handcuff
+    # Determines if a certain role can get/complete the objective.
     is_role_specific: false
+    # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective: 
+    # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
     reward: CustomItem
+    # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Handcuff someone'
+    # The amount that is needed to complete an objective.
     needed_to_complete: 1
+    # The ItemType you'll get if you complete an objective (if reward is set to Item)
     reward_item: None
+    # The CustomItem (by ID) you'll get if you complete an objective (if reward is set to CustomItem)
     reward_custom_item: 1
+    # The amount of XP you'll get if you complete an objective. (if reward is set to XP)
     reward_x_p: 0
-  - objective_type: DealDamage
+  -
+  # The objective that you need to complete (read the GitHub README for each ObjectiveType)
+    objective_type: DealDamage
+    # Determines if a certain role can get/complete the objective.
     is_role_specific: false
+    # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective: 
+    # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
     reward: Item
+    # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Deal Damage'
+    # The amount that is needed to complete an objective.
     needed_to_complete: 350
+    # The ItemType you'll get if you complete an objective (if reward is set to Item)
     reward_item: Coin
+    # The CustomItem (by ID) you'll get if you complete an objective (if reward is set to CustomItem)
     reward_custom_item: 0
+    # The amount of XP you'll get if you complete an objective. (if reward is set to XP)
     reward_x_p: 0
 ```
 After you are done, save the config and, if the server is online, restart the server, or, if it's offline, start the server and the objective should be in-game.
