@@ -1,5 +1,5 @@
 # SCPObjectives
-SCPObjectives is an EXILED plugin that adds objectives to SCP:SL.
+SCPObjectives is an EXILED plugin that adds objectives/quests to SCP:SL.
 
 # Features
 - Customizable objectives.
@@ -12,7 +12,10 @@ SCPObjectives is an EXILED plugin that adds objectives to SCP:SL.
 
 2. Put the 'SCPObjectives.dll' file in the ```EXILED/Plugins``` folder, then either restart the server, or start the server if it's offline.
 
-3. If you get an error related to XPSystem missing, ignore it unless you intend to have XP as an reward for objectives, the plugin will work as normal, if you do intend to have an XP reward, then install XPSystem.  
+3. If you get an error related to XPSystem missing, ignore it unless you intend to have XP as an reward for objectives, the plugin will work as normal, if you do intend to have an XP reward, then install XPSystem.
+
+# How To View Objectives
+When you spawn initially, if that's either when the round starts, or at the next spawnwavwe, you will be given objectives if ```assign_objectives``` is enabled (which it is by default), when you are given these objectives, it will print a message in the player console saying your objectives. To get an updated objective list, just run either ```.objectives```, or ```.listobjectives``` in the player console.
 
 # Settting Up New Objectives
 When the config get initialized, you'll see a few stuff, but this will focus on setting up Objectives, how Objectives work in this plugin is that you set the Objectives that can be given in the config. You do this by finding the ```objectives``` list in the config, this is what it should look like initially.
