@@ -62,7 +62,7 @@ When the config get initialized, you'll see a few stuff, but this will focus on 
     # The amount of XP you'll get if you complete an objective. (if reward is set to XP)
     reward_x_p: 0
 ```
-This is what each value within the objectives does, what each value does is explained, but here's a template:
+Each value is explained in the comment above it (e.g, needed_to_complete is the amount that is needed to complete an objective), here is a template for objectives:
 ```yaml
   -
   # The objective that you need to complete (read the GitHub README for each ObjectiveType)
