@@ -196,20 +196,30 @@ namespace SCPObjectives_NWAPI.API
         {
             PlayerObjective playerObj = new PlayerObjective();
 
-            if(objective != null)
+            Log.Debug("isPlayerObj init: " + (playerObj != null));
+            Log.Debug("is obj null: " + (objective == null));
+            Log.Debug("is player null: " + (player == null));
+
+            if (objective != null)
             {
+                Log.Debug("is rolespecific: " + objective.IsRoleSpecific);
+
                 if (objective.IsRoleSpecific && objective.RolesThatCanGetObjective.Contains(player.Role))
                     if (Plugin.Instance.Config.Debug)
                     {
                         Log.Warning("Cannot assign objective \"" + objective.ObjectiveString + "\" to player " + player.DisplayNickname + " as the objective is role specific and the player don't have the right role.");
                     }
-
                     return;
                 }
+
                 playerObj.player = player;
                 playerObj.objective = objective;
                 playerObj.Current = 0;
-                if(Objectives == null)
+            Log.Debug("player: " + playerObj.player.DisplayNickname);
+            Log.Debug("objective: " + playerObj.objective.ObjectiveString);
+            Log.Debug("current: " + playerObj.Current);
+
+            if (Objectives == null)
                 {
                     if (Plugin.Instance.Config.Debug)
                     {
@@ -218,8 +228,10 @@ namespace SCPObjectives_NWAPI.API
                     Init();
                 }
                 Objectives.Add(playerObj);
-            }
+            Log.Debug("does objectives contain user? " + Objectives.Contains(playerObj));
+
         }
+    }
 
         
     }
