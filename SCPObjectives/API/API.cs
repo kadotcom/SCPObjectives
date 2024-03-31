@@ -44,6 +44,7 @@ namespace SCPObjectives.API
         /// <returns></returns>
         public Objective GetRandomObjective(Player p)
         {
+            if (p == null || p.Role.Type == PlayerRoles.RoleTypeId.None || p.Role.Type == PlayerRoles.RoleTypeId.Spectator || Plugin.Instance.Config.Objectives.Count == 0) return null;
             Objective o = Plugin.Instance.Config.Objectives.RandomItem();
             if (o.IsRoleSpecific && !o.RolesThatCanGetObjective.Contains(p.Role.Type))
             {
