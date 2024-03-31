@@ -13,6 +13,15 @@ namespace SCPObjectives
 
         public void Spawned(SpawnedEventArgs ev)
         {
+            if (Plugin.Instance.Config.Objectives.Count == 0)
+            {
+                if (Plugin.Instance.Config.Debug)
+                {
+                    PluginAPI.Core.Log.Debug("You don't have any Objectives defined in the config.");
+                }
+                return;
+            }
+
             if(Plugin.Instance.API.PlayersWhoHasReceivedObjectives.Contains(ev.Player) && !Plugin.Instance.Config.GiveObjectivesWhenAPlayerRespawns)
             {
                 return;
@@ -23,7 +32,6 @@ namespace SCPObjectives
                 Objective o = Plugin.Instance.API.GetRandomObjective(ev.Player);
 
                 Plugin.Instance.API.AssignObjective(o, ev.Player);
-                PluginAPI.Core.Log.Debug((i + 1).ToString() + " - Objective");
             }
 
             if (!Plugin.Instance.Config.GiveObjectivesWhenAPlayerRespawns)
@@ -41,9 +49,7 @@ namespace SCPObjectives
             {
                 PlayerObjective po = Plugin.Instance.API.GetPlayerObjectiveFromEnum(ev.Attacker, API.Enums.ObjectiveEnum.KillAnotherPerson);
 
-                PluginAPI.Core.Log.Debug(po.Current + "/" + po.objective.NeededToComplete + " - before");
                 po.Current++;
-                PluginAPI.Core.Log.Debug(po.Current + "/" + po.objective.NeededToComplete + " - after");
                 if (po.Current >= po.objective.NeededToComplete && !po.IsCompleted)
                 {
                     Plugin.Instance.API.MarkObjectiveAsComplete(po);
@@ -73,9 +79,7 @@ namespace SCPObjectives
             {
                 PlayerObjective po = Plugin.Instance.API.GetPlayerObjectiveFromEnum(ev.Attacker, API.Enums.ObjectiveEnum.DealDamage);
 
-                PluginAPI.Core.Log.Debug(po.Current + "/" + po.objective.NeededToComplete + " - before");
                 po.Current += (int)ev.Amount;
-                PluginAPI.Core.Log.Debug(po.Current + "/" + po.objective.NeededToComplete + " - after");
 
                 if (po.Current >= po.objective.NeededToComplete && !po.IsCompleted)
                 {
