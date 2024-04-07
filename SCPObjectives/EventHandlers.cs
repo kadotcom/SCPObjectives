@@ -27,6 +27,14 @@ namespace SCPObjectives
                 return;
             }
 
+            if (Plugin.Instance.Config.GiveObjectivesWhenAPlayerRespawns || Plugin.Instance.API.GetAmountObjectives(ev.Player) > 0)           
+            {
+                foreach(PlayerObjective o in Plugin.Instance.API.GetPlayerObjectives(ev.Player))
+                {
+                    Plugin.Instance.API.Objectives.Remove(o);
+                }
+            }
+
             for(int i = 0; i < Plugin.Instance.Config.AmountOfObjectivesGiven;  i++)
             {
                 Objective o = Plugin.Instance.API.GetRandomObjective(ev.Player);
