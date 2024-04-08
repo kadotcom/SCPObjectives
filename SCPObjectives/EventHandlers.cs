@@ -45,7 +45,7 @@ namespace SCPObjectives
                 }
                 else
                 {
-                    PluginAPI.Core.Log.Debug("Random objective is null, check your config to make sure");
+                    PluginAPI.Core.Log.Debug("Random objective is null, check your config to make sure you have enough objectives.");
                 }
             }
 
