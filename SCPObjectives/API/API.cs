@@ -12,12 +12,12 @@ namespace SCPObjectives.API
         /// <summary>
         /// List of PlayerObjective (Objectives) that are currently.
         /// </summary>
-        public List<PlayerObjective> Objectives;
+        public List<PlayerObjective> Objectives = new List<PlayerObjective>();
 
         /// <summary>
         /// List of players who has received objectives.
         /// </summary>
-        public List<Player> PlayersWhoHasReceivedObjectives;
+        public List<Player> PlayersWhoHasReceivedObjectives = new List<Player>();
 
         public API() {
             Init();
@@ -46,15 +46,27 @@ namespace SCPObjectives.API
         {
             if (p == null || p.Role.Type == PlayerRoles.RoleTypeId.None || p.Role.Type == PlayerRoles.RoleTypeId.Spectator || Plugin.Instance.Config.Objectives.Count == 0) return null;
             Objective o = Plugin.Instance.Config.Objectives.RandomItem();
+            int reattempts = 0;
+
+            if (o == null)
+            {
+                while(o == null || reattempts < 15)
+                {
+                    o = Plugin.Instance.Config.Objectives.RandomItem();
+                    reattempts++;
+                }
+                reattempts = 0;
+            }
+
             if (o.IsRoleSpecific && !o.RolesThatCanGetObjective.Contains(p.Role.Type))
             {
-                int reattempts = 0;
-                while(!o.RolesThatCanGetObjective.Contains(p.Role.Type) || reattempts < 15)
+                while (!o.RolesThatCanGetObjective.Contains(p.Role.Type) || reattempts < 15)
                 {
                     o = Plugin.Instance.Config.Objectives.RandomItem();
                     reattempts++;
                 }
             }
+
             return o;
         }
 

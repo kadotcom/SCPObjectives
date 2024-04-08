@@ -39,7 +39,14 @@ namespace SCPObjectives
             {
                 Objective o = Plugin.Instance.API.GetRandomObjective(ev.Player);
 
-                Plugin.Instance.API.AssignObjective(o, ev.Player);
+                if (o != null)
+                {
+                    Plugin.Instance.API.AssignObjective(o, ev.Player);
+                }
+                else
+                {
+                    PluginAPI.Core.Log.Debug("Random objective is null, check your config to make sure");
+                }
             }
 
             if (!Plugin.Instance.Config.GiveObjectivesWhenAPlayerRespawns)
