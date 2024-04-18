@@ -27,13 +27,13 @@ namespace SCPObjectives.API.Components
         [Description("The amount that is needed to complete an objective.")]
         public int NeededToComplete { get; set; } = 0;
 
-        [Description("The ItemType you'll get if you complete an objective (if reward is set to Item)")]
+        [Description("The ItemType you'll get if you complete an objective.")]
         public ItemType RewardItem { get; set; } = ItemType.None;
 
-        [Description("The CustomItem (by ID) you'll get if you complete an objective (if reward is set to CustomItem)")]
+        [Description("The CustomItem (by ID) you'll get if you complete an objective.")]
         public uint RewardCustomItem { get; set; } = 0;
 
-        [Description("The amount of XP you'll get if you complete an objective. (if reward is set to XP)")]
+        [Description("The amount of XP you'll get if you complete an objective.")]
         public int RewardXP { get; set; } = 0;
     }
 }
