@@ -39,7 +39,7 @@ namespace SCPObjectives.API.Features
             {
                 if(o.IsCompleted)
                 {
-                    s += $"\n{o.objective.ObjectiveString} - COMPLTETED";
+                    s += $"\n{o.objective.ObjectiveString} - {Plugin.Instance.Translation.ObjectiveCompletedCheck}";
                 }
                 else
                 {
@@ -52,7 +52,7 @@ namespace SCPObjectives.API.Features
 
         public static string BuildCompletedString(PlayerObjective p)
         {
-            string hint = $"Completed {p.objective.ObjectiveString}";
+            string hint = $"{Plugin.Instance.Translation.ObjectiveCompletedHint} {p.objective.ObjectiveString}";
 
             if (p.objective.Rewards.Contains(Enums.RewardEnum.Item))
             {

@@ -5,7 +5,7 @@ using ServerEvents = Exiled.Events.Handlers.Server;
 
 namespace SCPObjectives
 {
-    public sealed class Plugin : Plugin<Config>
+    public sealed class Plugin : Plugin<Config, Translation>
     {
         public override string Author => "KadotCom";
 

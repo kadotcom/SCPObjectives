@@ -46,8 +46,15 @@ namespace SCPObjectives.API
         {
             if (p == null || p.Role.Type == PlayerRoles.RoleTypeId.None || p.Role.Type == PlayerRoles.RoleTypeId.Spectator || Plugin.Instance.Config.Objectives.Count == 0) return null;
             Objective o = Plugin.Instance.Config.Objectives.RandomItem();
-            int reattempts = 0;
+            //int reattempts = 0;
 
+            if (o.IsRoleSpecific && !o.RolesThatCanGetObjective.Contains(p.Role.Type))
+            {
+                return null;
+            }
+           
+
+            /*
             if (o == null)
             {
                 while(o == null || reattempts < 15)
@@ -66,6 +73,7 @@ namespace SCPObjectives.API
                     reattempts++;
                 }
             }
+            */
 
             return o;
         }
