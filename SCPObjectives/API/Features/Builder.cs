@@ -1,5 +1,7 @@
 ﻿using Exiled.API.Features;
+using Exiled.CustomItems.API.Features;
 using SCPObjectives.API.Components;
+using UnityEngine.Assertions.Must;
 
 namespace SCPObjectives.API.Features
 {
@@ -46,6 +48,26 @@ namespace SCPObjectives.API.Features
             }
 
             return s;
+        }
+
+        public static string BuildCompletedString(PlayerObjective p)
+        {
+            string hint = $"Completed {p.objective.ObjectiveString}";
+
+            if (p.objective.Rewards.Contains(Enums.RewardEnum.Item))
+            {
+                hint += $"\n+ {p.objective.RewardItem}";
+            }
+            if (p.objective.Rewards.Contains(Enums.RewardEnum.XP))
+            {
+                hint += $"\n+ {p.objective.RewardXP} EXP";
+            }
+            if (p.objective.Rewards.Contains(Enums.RewardEnum.CustomItem))
+            {
+                hint += $"\n+ {CustomItem.Get(p.objective.RewardCustomItem).Name}";
+            }
+
+            return BuildHint(hint, "36fe04ff");
         }
     }
 }

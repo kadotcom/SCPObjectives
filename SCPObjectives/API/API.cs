@@ -155,25 +155,26 @@ namespace SCPObjectives.API
         /// <param name="p">PlayerObjective</param>
         public void MarkObjectiveAsComplete(PlayerObjective p)
         {
-            string hint = "";
+            string hint;
 
             if (Objectives.Contains(p) && !p.IsCompleted)
             {
-                if (p.objective.Reward == Enums.RewardEnum.Item)
+                hint = Features.Builder.BuildCompletedString(p);
+
+                if (p.objective.Rewards.Contains(RewardEnum.Item))
                 {
-                    hint = Features.Builder.BuildHint($"Completed {p.objective.ObjectiveString}!\n+{p.objective.RewardItem.ToString()}", "36fe04ff");
                     p.player.AddItem(p.objective.RewardItem);
                 }
-                else if (p.objective.Reward == Enums.RewardEnum.XP)
+                else if (p.objective.Rewards.Contains(RewardEnum.XP))
                 {
                     if (Main.Instance == null)
                     {
                         PluginAPI.Core.Log.Error("Cannot grant XP as XPSystem doesn't exist, please install the plugin.");
                         return;
                     }
-                    hint = Features.Builder.BuildHint($"Completed {p.objective.ObjectiveString}!\n+{p.objective.RewardXP.ToString()} EXP", "36fe04ff");
                     XPSystem.API.Extensions.AddXP(XPSystem.API.Extensions.GetLog(p.player.ReferenceHub), p.objective.RewardXP);
-                }else if(p.objective.Reward == RewardEnum.CustomItem)
+                }
+                else if (p.objective.Rewards.Contains(RewardEnum.CustomItem))
                 {
                     CustomItem? customItem = CustomItem.Get(p.objective.RewardCustomItem);
 
@@ -184,8 +185,6 @@ namespace SCPObjectives.API
                     }
 
                     customItem.Give(p.player);
-                    hint = Features.Builder.BuildHint($"Completed {p.objective.ObjectiveString}!\n+{customItem.Name}", "36fe04ff");
-
                 }
 
                 p.player.ShowHint(hint, 5);

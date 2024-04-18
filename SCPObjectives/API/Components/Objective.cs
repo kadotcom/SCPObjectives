@@ -16,8 +16,10 @@ namespace SCPObjectives.API.Components
         [Description("List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.")]
         public List<RoleTypeId> RolesThatCanGetObjective { get; set; } = new List<RoleTypeId>();
 
-        [Description("The reward you'll get once the objective is completed (read the GitHub README for each RewardType)")]
-        public RewardEnum Reward { get; set; } = RewardEnum.None;
+        [Description("The rewards you'll get once the objective is completed (read the GitHub README for each RewardType)")]
+        public List<RewardEnum> Rewards { get; set; } = new List<RewardEnum>() { 
+            RewardEnum.None
+        };
 
         [Description("The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')")]
         public string ObjectiveString { get; set; } = "Do Absolutely Nothing";

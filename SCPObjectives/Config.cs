@@ -27,30 +27,31 @@ namespace SCPObjectives
         public List<Objective> Objectives { get; set; } = new List<Objective>() { 
             new Objective()
             {
+                ObjectiveString = "Escape The Facility",
                 ObjectiveType = API.Enums.ObjectiveEnum.EscapeFacility,
-                Reward = API.Enums.RewardEnum.Item,
-                RewardItem = ItemType.KeycardScientist,
-                RewardXP = 0,
+                Rewards = new List<API.Enums.RewardEnum>()
+                {
+                    API.Enums.RewardEnum.Item
+                },
+                IsRoleSpecific = true,
                 RolesThatCanGetObjective = new List<PlayerRoles.RoleTypeId>()
                 {
                     PlayerRoles.RoleTypeId.ClassD,
                     PlayerRoles.RoleTypeId.Scientist
                 },
-                IsRoleSpecific = true,
                 NeededToComplete = 1,
-                ObjectiveString = "Escape the facility"
+                RewardItem = ItemType.KeycardScientist,
             },
             new Objective()
             {
+                ObjectiveString = "Handcuff Someone",
                 ObjectiveType = API.Enums.ObjectiveEnum.Handcuff,
-                Reward = API.Enums.RewardEnum.CustomItem,
-                RewardItem = ItemType.None,
-                RewardXP = 0,
-                RewardCustomItem = 1,
-                RolesThatCanGetObjective = null,
-                IsRoleSpecific = false,
+                Rewards = new List<API.Enums.RewardEnum>()
+                {
+                    API.Enums.RewardEnum.CustomItem
+                },
                 NeededToComplete = 1,
-                ObjectiveString = "Handcuff someone"
+                RewardCustomItem = 1,
             },
         };
     }
