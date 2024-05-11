@@ -66,6 +66,17 @@ namespace SCPObjectives.API.Features
             {
                 hint += $"\n+ {CustomItem.Get(p.objective.RewardCustomItem).Name}";
             }
+            if (p.objective.Rewards.Contains(Enums.RewardEnum.Tickets))
+            {
+                if(p.player.Role.Side == Exiled.API.Enums.Side.ChaosInsurgency)
+                {
+                    hint += $"\n+ {p.objective.RewardTickets} CI Tickets";
+                }
+                else if(p.player.Role.Side == Exiled.API.Enums.Side.Mtf)
+                {
+                    hint += $"\n+ {p.objective.RewardTickets} MTF Tickets";
+                }
+            }
 
             return BuildHint(hint, "36fe04ff");
         }

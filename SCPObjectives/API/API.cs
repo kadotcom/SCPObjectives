@@ -1,5 +1,7 @@
 ﻿using Exiled.API.Features;
 using Exiled.CustomItems.API.Features;
+using PlayerRoles.RoleAssign;
+using Respawning;
 using SCPObjectives.API.Components;
 using SCPObjectives.API.Enums;
 using System.Collections.Generic;
@@ -193,6 +195,16 @@ namespace SCPObjectives.API
                     }
 
                     customItem.Give(p.player);
+                }else if (p.objective.Rewards.Contains(RewardEnum.Tickets))
+                {
+                    if(p.player.Role.Side == Exiled.API.Enums.Side.Mtf)
+                    {
+                        RespawnTokensManager.GrantTokens(SpawnableTeamType.NineTailedFox, p.objective.RewardTickets);
+                    }
+                    else if(p.player.Role.Side == Exiled.API.Enums.Side.ChaosInsurgency)
+                    {
+                        RespawnTokensManager.GrantTokens(SpawnableTeamType.ChaosInsurgency, p.objective.RewardTickets);
+                    }
                 }
 
                 p.player.ShowHint(hint, 5);

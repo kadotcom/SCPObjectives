@@ -21,19 +21,22 @@ namespace SCPObjectives.API.Components
             RewardEnum.None
         };
 
-        [Description("The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')")]
+        [Description("The name of the objective.")]
         public string ObjectiveString { get; set; } = "Do Absolutely Nothing";
 
         [Description("The amount that is needed to complete an objective.")]
         public int NeededToComplete { get; set; } = 0;
 
-        [Description("The ItemType you'll get if you complete an objective.")]
+        [Description("The ItemType you'll get if a player completes an objective and has Item as a reward.")]
         public ItemType RewardItem { get; set; } = ItemType.None;
 
-        [Description("The CustomItem (by ID) you'll get if you complete an objective.")]
+        [Description("The CustomItem (by ID) you'll get if a player completes an objective and has CustomItem as a reward.")]
         public uint RewardCustomItem { get; set; } = 0;
 
-        [Description("The amount of XP you'll get if you complete an objective.")]
+        [Description("The amount of XP you'll get if a player completes an objective and has XP as a reward.")]
         public int RewardXP { get; set; } = 0;
+
+        [Description("The amount of MTF/CI tickets the server will get if a player completes an objective and has Tickets as a reward.")]
+        public float RewardTickets { get; set; } = 0;
     }
 }
