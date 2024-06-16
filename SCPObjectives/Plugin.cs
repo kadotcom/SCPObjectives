@@ -13,7 +13,7 @@ namespace SCPObjectives
 
         public override string Prefix => Name;
 
-        public override Version Version => new Version(1,2,0);
+        public override Version Version => new Version(1,2,1);
 
         public static Plugin Instance;
 
