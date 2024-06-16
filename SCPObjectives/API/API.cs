@@ -182,7 +182,7 @@ namespace SCPObjectives.API
                         PluginAPI.Core.Log.Error("Cannot grant XP as XPSystem doesn't exist, please install the plugin.");
                         return;
                     }
-                    XPSystem.API.Extensions.AddXP(XPSystem.API.Extensions.GetLog(p.player.ReferenceHub), p.objective.RewardXP);
+                    XPSystem.API.XPAPI.AddXP(XPSystem.API.XPPlayer.Get(p.player.ReferenceHub), p.objective.RewardXP);
                 }
                 else if (p.objective.Rewards.Contains(RewardEnum.CustomItem))
                 {
