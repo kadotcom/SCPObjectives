@@ -186,6 +186,7 @@ namespace SCPObjectives.API
                 }
                 else if (p.objective.Rewards.Contains(RewardEnum.CustomItem))
                 {
+
                     CustomItem? customItem = CustomItem.Get(p.objective.RewardCustomItem);
 
                     if (customItem == null)

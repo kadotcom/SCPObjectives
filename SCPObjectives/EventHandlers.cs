@@ -182,7 +182,7 @@ namespace SCPObjectives
             {
                 if (Plugin.Instance.API.PlayerHasObjective(ev.Player, API.Enums.ObjectiveEnum.DrinkCola))
                 {
-                    PlayerObjective po = Plugin.Instance.API.GetPlayerObjectiveFromEnum(ev.Player, API.Enums.ObjectiveEnum.HaveADrink);
+                    PlayerObjective po = Plugin.Instance.API.GetPlayerObjectiveFromEnum(ev.Player, API.Enums.ObjectiveEnum.DrinkCola);
 
                     po.Current++;
                     if (po.Current >= po.objective.NeededToComplete && !po.IsCompleted)
