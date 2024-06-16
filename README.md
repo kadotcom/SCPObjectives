@@ -33,7 +33,8 @@ When the config get initialized, you'll see a few stuff, but this will focus on 
     - ClassD
     - Scientist
     # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
-    reward: Item
+    rewards:
+    - Item
     # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Escape the facility'
     # The amount that is needed to complete an objective.
@@ -52,7 +53,8 @@ When the config get initialized, you'll see a few stuff, but this will focus on 
     # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective: 
     # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
-    reward: CustomItem
+    rewards:
+    - CustomItem
     # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Handcuff someone'
     # The amount that is needed to complete an objective.
@@ -74,7 +76,8 @@ Each value is explained in the comment above it (e.g, needed_to_complete is the 
     # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective: 
     # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
-    reward: None
+    rewards:
+    - None
     # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: ''
     # The amount that is needed to complete an objective.
@@ -99,7 +102,8 @@ So, to add a new objective, you copy the template, or one of the objectives prov
     - ClassD
     - Scientist
     # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
-    reward: Item
+    rewards:
+    - Item
     # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Escape the facility'
     # The amount that is needed to complete an objective.
@@ -118,7 +122,8 @@ So, to add a new objective, you copy the template, or one of the objectives prov
     # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective: 
     # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
-    reward: CustomItem
+    rewards:
+    - CustomItem
     # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Handcuff someone'
     # The amount that is needed to complete an objective.
@@ -137,7 +142,8 @@ So, to add a new objective, you copy the template, or one of the objectives prov
     # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective: 
     # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
-    reward: None
+    rewards:
+    - None
     # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: ''
     # The amount that is needed to complete an objective.
@@ -149,7 +155,7 @@ So, to add a new objective, you copy the template, or one of the objectives prov
     # The amount of XP you'll get if you complete an objective. (if reward is set to XP)
     reward_x_p: 0
 ```
-Now, obviously, an uncompletable objective can't be assigned, so let's change some of the values in here. Let's start with the ObjectiveType, there is, currently, 4 actual objectives types, those are listed below:
+Now, obviously, an uncompletable objective can't be assigned, so let's change some of the values in here. Let's start with the ObjectiveType, there is, currently, 9 actual objectives types, those are listed below:
 ### ObjectiveTypes
 ```csharp
 // Kill anyone of any role to complete this objective.
@@ -160,12 +166,16 @@ EscapeFacility
 DealDamage
 // Handcuff anyone to complete this objective.
 Handcuff
-/// Activate a generator to complete this objective.
+// Activate a generator to complete this objective.
 EnableGenerators
-/// Get into and successfully escape the pocket dimension to complete this objective.
+// Get into and successfully escape the pocket dimension to complete this objective.
 EscapePocketDimension
-/// Pick up any item to complete this objective.
+// Pick up any item to complete this objective.
 PickUpItem
+// Open a gate to complete this objective.
+AccessGate
+// Drink a cola to complete this objective.
+DrinkCola
 ```
 So, for this example, let's make the objective completeable by dealing damage to someone.
 ```yaml
@@ -173,7 +183,7 @@ So, for this example, let's make the objective completeable by dealing damage to
 ```
 Now, for this example, I won't enable ```is_role_specific```, but there is an example within the config, so let's go to setting a reward.
 
-As of right now, there are three actual reward types, those are listed below:
+As of right now, there are four actual reward types, those are listed below:
 ### RewardTypes
 ```csharp
 // Give an item on completion.
@@ -182,10 +192,13 @@ Item
 CustomItem
 // Give some XP on completion (you must need XPSystem for this to work)
 XP
+// Gives MTF/CI tickets on completion depending on what team the player who completed it is on.
+Tickets
 ```
-For this example, let's make it so it rewards an item:
+For this example, let's make it so it rewards an item, you can add more rewards by copying the entry and adding another one, just do note, if you add more than one reward, the user will get all rewards you put, not just one of the rewards:
 ```yaml
-reward: Item
+reward:
+- Item
 ```
 So now it's time to give the objective a name, I am gonna go with something simple for the example:
 ```yaml
@@ -209,7 +222,8 @@ And now... we are done! So here is what the final result looks like in this case
     # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective: 
     # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
-    reward: Item
+    rewards:
+    - Item
     # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Deal Damage'
     # The amount that is needed to complete an objective.
@@ -234,7 +248,8 @@ And this is how it should look like in the ```objectives``` list:
     - ClassD
     - Scientist
     # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
-    reward: Item
+    rewards:
+    - Item
     # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Escape the facility'
     # The amount that is needed to complete an objective.
@@ -253,7 +268,8 @@ And this is how it should look like in the ```objectives``` list:
     # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective: 
     # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
-    reward: CustomItem
+    rewards:
+    - CustomItem
     # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Handcuff someone'
     # The amount that is needed to complete an objective.
@@ -272,7 +288,8 @@ And this is how it should look like in the ```objectives``` list:
     # List of RoleTypeId's that can get/complete the objective if is_role_specific' is enabled.
     roles_that_can_get_objective: 
     # The reward you'll get once the objective is completed (read the GitHub README for each RewardType)
-    reward: Item
+    rewards:
+    - Item
     # The name of the objective (e.g, if your objective is on escaping, you can call it something like 'Escape The Facility')
     objective_string: 'Deal Damage'
     # The amount that is needed to complete an objective.
