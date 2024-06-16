@@ -1,4 +1,5 @@
-﻿using Exiled.Events.EventArgs.Player;
+﻿using Exiled.API.Features;
+using Exiled.Events.EventArgs.Player;
 using SCPObjectives.API.Components;
 using SCPObjectives.API.Features;
 
@@ -22,20 +23,20 @@ namespace SCPObjectives
                 return;
             }
 
-            if(Plugin.Instance.API.PlayersWhoHasReceivedObjectives.Contains(ev.Player) && !Plugin.Instance.Config.GiveObjectivesWhenAPlayerRespawns)
+            if (Plugin.Instance.API.PlayersWhoHasReceivedObjectives.Contains(ev.Player) && !Plugin.Instance.Config.GiveObjectivesWhenAPlayerRespawns)
             {
                 return;
             }
 
-            if (Plugin.Instance.Config.GiveObjectivesWhenAPlayerRespawns || Plugin.Instance.API.GetAmountObjectives(ev.Player) > 0)           
+            if (Plugin.Instance.Config.GiveObjectivesWhenAPlayerRespawns || Plugin.Instance.API.GetAmountObjectives(ev.Player) > 0)
             {
-                foreach(PlayerObjective o in Plugin.Instance.API.GetPlayerObjectives(ev.Player))
+                foreach (PlayerObjective o in Plugin.Instance.API.GetPlayerObjectives(ev.Player))
                 {
                     Plugin.Instance.API.Objectives.Remove(o);
                 }
             }
 
-            for(int i = 0; i < Plugin.Instance.Config.AmountOfObjectivesGiven;  i++)
+            for (int i = 0; i < Plugin.Instance.Config.AmountOfObjectivesGiven; i++)
             {
                 Objective o = Plugin.Instance.API.GetRandomObjective(ev.Player);
 
@@ -82,6 +83,23 @@ namespace SCPObjectives
                 if (po.Current >= po.objective.NeededToComplete && !po.IsCompleted)
                 {
                     Plugin.Instance.API.MarkObjectiveAsComplete(po);
+                }
+            }
+
+            foreach (Player p in Player.List)
+            {
+                if (p.CurrentRoom.Type == Exiled.API.Enums.RoomType.Surface)
+                {
+                    if (Plugin.Instance.API.PlayerHasObjective(p, API.Enums.ObjectiveEnum.AssistEscape))
+                    {
+                        PlayerObjective po = Plugin.Instance.API.GetPlayerObjectiveFromEnum(p, API.Enums.ObjectiveEnum.AssistEscape);
+
+                        po.Current++;
+                        if (po.Current >= po.objective.NeededToComplete && !po.IsCompleted)
+                        {
+                            Plugin.Instance.API.MarkObjectiveAsComplete(po);
+                        }
+                    }
                 }
             }
         }
@@ -155,6 +173,41 @@ namespace SCPObjectives
                 {
                     Plugin.Instance.API.MarkObjectiveAsComplete(po);
                 }
+            }
+        }
+
+        public void UseItem(UsingItemCompletedEventArgs ev)
+        {
+            if (ev.Item.Type == ItemType.SCP207 || ev.Item.Type == ItemType.AntiSCP207)
+            {
+                if (Plugin.Instance.API.PlayerHasObjective(ev.Player, API.Enums.ObjectiveEnum.DrinkCola))
+                {
+                    PlayerObjective po = Plugin.Instance.API.GetPlayerObjectiveFromEnum(ev.Player, API.Enums.ObjectiveEnum.HaveADrink);
+
+                    po.Current++;
+                    if (po.Current >= po.objective.NeededToComplete && !po.IsCompleted)
+                    {
+                        Plugin.Instance.API.MarkObjectiveAsComplete(po);
+                    }
+                }
+            }
+        }
+
+        public void OpenDoor(Exiled.Events.EventArgs.Player.InteractingDoorEventArgs ev)
+        {
+            if(ev.Door.Type == Exiled.API.Enums.DoorType.GateA || ev.Door.Type == Exiled.API.Enums.DoorType.GateB)
+            {
+                if (Plugin.Instance.API.PlayerHasObjective(ev.Player, API.Enums.ObjectiveEnum.AccessGate))
+                {
+                    PlayerObjective po = Plugin.Instance.API.GetPlayerObjectiveFromEnum(ev.Player, API.Enums.ObjectiveEnum.AccessGate);
+
+                    po.Current++;
+                    if (po.Current >= po.objective.NeededToComplete && !po.IsCompleted)
+                    {
+                        Plugin.Instance.API.MarkObjectiveAsComplete(po);
+                    }
+                }
+
             }
         }
     }

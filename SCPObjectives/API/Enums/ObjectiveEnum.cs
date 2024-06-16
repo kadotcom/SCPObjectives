@@ -18,11 +18,15 @@ namespace SCPObjectives.API.Enums
         /// </summary>
         KillAnotherPerson,
 
-
         /// <summary>
         /// Escape and become an Private/Conscript to complete this objective.
         /// </summary>
         EscapeFacility,
+
+        /// <summary>
+        /// Be on surface when someone escapes to complete this objective.
+        /// </summary>
+        AssistEscape,
 
         /// <summary>
         /// Deal damage to anyone to complete this objective.
@@ -47,7 +51,16 @@ namespace SCPObjectives.API.Enums
         /// <summary>
         /// Pick up any item to complete this objective.
         /// </summary>
-        PickUpItem
+        PickUpItem,
 
+        /// <summary>
+        /// Open a gate to complete this objective.
+        /// </summary>
+        AccessGate,
+
+        /// <summary>
+        /// Drink a cola to complete this objective.
+        /// </summary>
+        DrinkCola,
     }
 }

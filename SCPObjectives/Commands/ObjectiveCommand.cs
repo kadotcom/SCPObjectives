@@ -15,6 +15,8 @@
 
         public string Description { get; } = "Lists every objective you currently have.";
 
+        public bool SanitizeResponse => false;
+
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             if (sender is not PlayerCommandSender)

@@ -54,8 +54,9 @@ namespace SCPObjectives
             PlayerEvents.Handcuffing += _handlers.Handcuff;
             PlayerEvents.EscapingPocketDimension += _handlers.EscapePocketDimension;
             PlayerEvents.ActivatingGenerator += _handlers.EnableGenerator;
+            PlayerEvents.UsingItemCompleted += _handlers.UseItem;
             PlayerEvents.PickingUpItem += _handlers.PickUpItem;
-
+            PlayerEvents.InteractingDoor += _handlers.OpenDoor;
             ServerEvents.RestartingRound += _handlers.Restart;
         }
 
@@ -69,7 +70,8 @@ namespace SCPObjectives
             PlayerEvents.EscapingPocketDimension -= _handlers.EscapePocketDimension;
             PlayerEvents.ActivatingGenerator -= _handlers.EnableGenerator;
             PlayerEvents.PickingUpItem -= _handlers.PickUpItem;
-
+            PlayerEvents.UsingItemCompleted -= _handlers.UseItem;
+            PlayerEvents.InteractingDoor -= _handlers.OpenDoor;
             ServerEvents.RestartingRound -= _handlers.Restart;
 
             _handlers = null;

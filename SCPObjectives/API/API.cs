@@ -194,7 +194,7 @@ namespace SCPObjectives.API
                         return;
                     }
 
-                    customItem.Give(p.player);
+                    customItem.Give(p.player, false);
                 }else if (p.objective.Rewards.Contains(RewardEnum.Tickets))
                 {
                     if(p.player.Role.Side == Exiled.API.Enums.Side.Mtf)

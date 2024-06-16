@@ -1,6 +1,8 @@
-﻿using Exiled.API.Features;
+﻿using Exiled.API.Extensions;
+using Exiled.API.Features;
 using Exiled.CustomItems.API.Features;
 using SCPObjectives.API.Components;
+using SCPObjectives.API.Enums;
 using UnityEngine.Assertions.Must;
 
 namespace SCPObjectives.API.Features
@@ -44,6 +46,33 @@ namespace SCPObjectives.API.Features
                 else
                 {
                     s += $"\n{o.objective.ObjectiveString} - {o.Current}/{o.objective.NeededToComplete}";
+                    foreach(RewardEnum re in o.objective.Rewards)
+                    {
+                        if(re == RewardEnum.Item)
+                        {
+                            s += $"\n - " + o.objective.RewardItem;
+                        }
+                        if (re == RewardEnum.CustomItem)
+                        {
+                            s += $"\n - " + CustomItem.Get(o.objective.RewardCustomItem).Name;
+                        }
+                        if (re == RewardEnum.XP)
+                        {
+                            s += $"\n - " + o.objective.RewardXP + " EXP";
+                        }
+                        if (re == RewardEnum.Tickets)
+                        {
+                            if (o.player.Role.Side == Exiled.API.Enums.Side.Mtf)
+                            {
+                                s += $"\n - " + o.objective.RewardTickets + " MTF Tickets";
+                            }
+                            else if(o.player.Role.Side == Exiled.API.Enums.Side.ChaosInsurgency)
+                            {
+                                s += $"\n - " + o.objective.RewardTickets + " CI Tickets";
+                            }
+                        }
+
+                    }
                 }
             }
 
