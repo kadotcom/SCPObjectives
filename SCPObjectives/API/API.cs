@@ -1,5 +1,5 @@
 ﻿using Exiled.API.Features;
-using Exiled.CustomItems.API.Features;
+using Exiled.CustomModules.API.Features.CustomItems;
 using PlayerRoles.RoleAssign;
 using Respawning;
 using SCPObjectives.API.Components;

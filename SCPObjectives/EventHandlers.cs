@@ -176,7 +176,7 @@ namespace SCPObjectives
             }
         }
 
-        public void UseItem(UsingItemCompletedEventArgs ev)
+        public void UseItem(UsedItemEventArgs ev)
         {
             if (ev.Item.Type == ItemType.SCP207 || ev.Item.Type == ItemType.AntiSCP207)
             {

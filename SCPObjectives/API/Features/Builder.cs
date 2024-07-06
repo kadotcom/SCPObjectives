@@ -1,6 +1,6 @@
 ﻿using Exiled.API.Extensions;
 using Exiled.API.Features;
-using Exiled.CustomItems.API.Features;
+using Exiled.CustomModules.API.Features.CustomItems;
 using SCPObjectives.API.Components;
 using SCPObjectives.API.Enums;
 using UnityEngine.Assertions.Must;
