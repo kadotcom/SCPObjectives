@@ -8,7 +8,7 @@ SCPObjectives is an EXILED plugin that adds objectives/quests to SCP:SL.
 
 # Installation
 
-1. Install the 'SCPObjectives.dll' file from the [GitHub Releases](https://github.com/kadotcom/SCPObjectives/releases/latest).
+1. Install the 'SCPObjectives.dll' file from the [GitHub Releases](https://github.com/kadotcom/SCPObjectives/releases).
 
 2. Put the 'SCPObjectives.dll' file in the ```EXILED/Plugins``` folder, then either restart the server, or start the server if it's offline.
 
