@@ -9,9 +9,9 @@ namespace SCPObjectives
     {
         public override string Author => "KadotCom";
 
-        public override string Name => "SCPObjectives";
+        public override string Name => "SCPObjectives Exiled 9 Beta";
 
-        public override string Prefix => Name;
+        public override string Prefix => "SCPObjectives";
 
         public override Version Version => new Version(1,2,2);
 

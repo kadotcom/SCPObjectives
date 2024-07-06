@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SCPObjectives")]
+[assembly: AssemblyTitle("SCPObjectivesBeta-EXILED9")]
 [assembly: AssemblyDescription("An EXILED plugin that adds Objectives to SCP:SL")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
